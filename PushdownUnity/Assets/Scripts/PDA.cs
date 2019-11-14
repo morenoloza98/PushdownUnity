@@ -67,7 +67,7 @@ public class PDA : MonoBehaviour
             productionsDictionary.Add(ls, pd);
         }
 
-        Debug.Log(productionsDictionary);
+        /*Debug.Log(productionsDictionary);
 
         //Imprimir valor en Diccionario
         List<string> value;
@@ -79,6 +79,10 @@ public class PDA : MonoBehaviour
         }
         else{
             Debug.Log("Not working");
-        }
+        }*/
+    }
+
+    public void readStringFromInput(string toProcess){
+        Debug.Log(toProcess);
     }
 }
