@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class PDA : MonoBehaviour
 {
-    public void splitFile(List<string> list)
+    public void splitFile(string[] list)
     {
         Dictionary<string, List<string>> productionsDictionary = new Dictionary<string, List<string>>();
-        int listSize = list.Count;
+        int listSize = list.Length;
 
         string nonTerminalSymbolsLine;
         List<string> nonTerminalSymbols = new List<string>();
@@ -29,6 +29,7 @@ public class PDA : MonoBehaviour
         foreach (string i in nonTerminalSymbolsSplit)
         {
             nonTerminalSymbols.Add(i);
+            //Debug.Log("Non terminal Symbols: " + i);
         }
 
         terminalSymbolsLine = list[1];
@@ -36,6 +37,7 @@ public class PDA : MonoBehaviour
         foreach (string i in terminalSymbolsSplit)
         {
             terminalSymbols.Add(i);
+            //Debug.Log("Terminal Symbols: " + i);
         }
 
         for (int i = 0; i < remainingLines; i++)
@@ -63,6 +65,17 @@ public class PDA : MonoBehaviour
 
             }
             productionsDictionary.Add(ls, pd);
+        }
+
+        List<string> value;
+        if(productionsDictionary.TryGetValue("S", out value)){
+            Debug.Log("For key: S => ");
+            foreach(var i in value){
+                Debug.Log(i);
+            }
+        }
+        else{
+            Debug.Log("Not working");
         }
 
         Debug.Log(productionsDictionary);

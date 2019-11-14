@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-    public FileReader fileRead = new FileReader();
-    public PDA pda = new PDA();
+    public GameObject fileRead;
+    public GameObject pda;
+    public FileReader fileReadScript;
+    public PDA pdaScript;
+
+    void Start()
+    {
+        fileReadScript = fileRead.GetComponent<FileReader>();
+        pdaScript = pda.GetComponent<PDA>();
+    }
+
+    public void Check(){
+        pdaScript.splitFile(fileReadScript.ReadFile());
+    }
+    
 
 }
