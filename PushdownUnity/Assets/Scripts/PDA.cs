@@ -67,6 +67,9 @@ public class PDA : MonoBehaviour
             productionsDictionary.Add(ls, pd);
         }
 
+        Debug.Log(productionsDictionary);
+
+        //Imprimir valor en Diccionario
         List<string> value;
         if(productionsDictionary.TryGetValue("S", out value)){
             Debug.Log("For key: S => ");
@@ -77,8 +80,5 @@ public class PDA : MonoBehaviour
         else{
             Debug.Log("Not working");
         }
-
-        Debug.Log(productionsDictionary);
-
     }
 }
